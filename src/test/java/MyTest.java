@@ -10,9 +10,9 @@ public class MyTest {
 //        List<String> o = ChenminEncryptUtills.simpleDecodeByList(Arrays.asList(s.split(" ")));
 //        System.out.println(o);
 
-        String encryptStr = ChenminEncryptUtills.simpleEncodeBy2BinarySystem("陈敏是真特么帅");
+        String encryptStr = ChenminEncryptUtills.simpleEncode("不知道的事");
         System.out.println(encryptStr);
-        String decryptStr = ChenminEncryptUtills.simpleDecodeBy2BinarySystem(encryptStr);
+        String decryptStr = ChenminEncryptUtills.simpleDecode(encryptStr);
         System.out.println(decryptStr);
     }
 }
