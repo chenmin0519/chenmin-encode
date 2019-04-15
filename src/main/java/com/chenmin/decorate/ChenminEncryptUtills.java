@@ -39,7 +39,8 @@ public class ChenminEncryptUtills {
         List<String> encodeFinishArr = ChenminsUtils.decodeStringToArr(plaintext);
         List<String> encodeArr = new ArrayList<>();
         encodeFinishArr.forEach(encodeFinishNum -> {
-            encodeArr.add(BinaryUtils.decode64(encodeFinishNum).toString());
+            Long encodeNum = BinaryUtils.decode64(encodeFinishNum).longValue();
+            encodeArr.add(encodeNum.toString());
         });
         List<String> decodeArr = simpleDecodeByList(encodeArr);
         for(int i = 0 ; i < decodeArr.size() ; i ++){

@@ -20,7 +20,7 @@ public class ChenminsUtils {
      */
     public static String encodeArrToString(List<String> list){
         String resut = "";
-        for(int i = 0 ; i <= list.size() ; i ++){
+        for(int i = 0 ; i < list.size() ; i ++){
             resut += list.get(i);
             switch ((i+1)%4){
                 case 1 : resut += array[0];
