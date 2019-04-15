@@ -1,5 +1,8 @@
 package com.chenmin.decorate;
 
+import com.chenmin.util.BinaryUtils;
+import com.chenmin.util.ChenminsUtils;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -10,6 +13,44 @@ import java.util.List;
  * 加密模式入口
  */
 public class ChenminEncryptUtills {
+
+    /**
+     * 简单的加密
+     * @param plaintext
+     * @return
+     */
+    public static String simpleEncode(String plaintext){
+        String result = "";
+        List<String> encodeFinishArr = new ArrayList<>();
+        List<String> encodeArr =simpleEncodeByList(plaintext);
+        encodeArr.forEach(encodeNum -> {
+            encodeFinishArr.add(BinaryUtils.encode64(Double.parseDouble(encodeNum)));
+        });
+        return ChenminsUtils.encodeArrToString(encodeFinishArr);
+    }
+
+    /**
+     * 简单的解密
+     * @param plaintext
+     * @return
+     */
+    public static String simpleDecode(String plaintext){
+        String result = "";
+        List<String> encodeFinishArr = ChenminsUtils.decodeStringToArr(plaintext);
+        List<String> encodeArr = new ArrayList<>();
+        encodeFinishArr.forEach(encodeFinishNum -> {
+            encodeArr.add(BinaryUtils.decode64(encodeFinishNum).toString());
+        });
+        List<String> decodeArr = simpleDecodeByList(encodeArr);
+        for(int i = 0 ; i < decodeArr.size() ; i ++){
+            result += decodeArr.get(i);
+            if(i != (decodeArr.size() - 1)){
+                result += ",";
+            }
+        }
+        result = AsciiUtills.asciiToString(result);
+        return result;
+    }
     /**
      * chenmin式编码返回2进制
      * @param plaintext
@@ -28,6 +69,11 @@ public class ChenminEncryptUtills {
         return result;
     }
 
+    /**
+     * chenmin式编码对2进制解密
+     * @param plaintext
+     * @return
+     */
     public static String simpleDecodeBy2BinarySystem(String plaintext){
         String result = "";
         String[] binarySystemNums = plaintext.split(" ");
@@ -47,7 +93,7 @@ public class ChenminEncryptUtills {
         return result;
     }
 
-    public static List<String> simpleEncodeByList(String plaintext){
+    protected static List<String> simpleEncodeByList(String plaintext){
         String asciiStr = AsciiUtills.stringToAscii(plaintext);
         String[] asciiArr = asciiStr.split(",");
         CutbackEncryption cutbackEncryption = new CutbackEncryption(
@@ -56,7 +102,7 @@ public class ChenminEncryptUtills {
         return cutbackEncryption.encrypt(Arrays.asList(asciiArr));
     }
 
-    public static List<String> simpleDecodeByList(List<String> plainArr){
+    protected static List<String> simpleDecodeByList(List<String> plainArr){
         SimpleCutEncryption cutbackDecryption = new SimpleCutEncryption(
                 new CutbackEncryption(
                         DefaultEncryption.getInstence()));
