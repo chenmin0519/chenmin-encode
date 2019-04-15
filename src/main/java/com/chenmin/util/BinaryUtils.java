@@ -22,7 +22,6 @@ public class BinaryUtils {
      * @return
      */
     public static String encode64(double number) {
-        logger.info("进入自定义对10进制数加密-encode64()");
         double rest = number;
         // 创建栈
         Stack<Character> stack = new Stack<Character>();
@@ -37,7 +36,6 @@ public class BinaryUtils {
             // 出栈
             result.append(stack.pop());
         }
-        logger.info("对10进制数加密完成-encode64()");
         return result.toString();
     }
 
@@ -48,7 +46,6 @@ public class BinaryUtils {
      * @return
      */
     public static Double decode64(String str) {
-        logger.info("进入自定义解密10进制数-decode64()");
         // 倍数
         int multiple = 1;
         double result = 0;
@@ -58,7 +55,6 @@ public class BinaryUtils {
             result += decodeChar(c) * multiple;
             multiple = multiple * 69;
         }
-        logger.info("自定义解密10进制数完成-decode64()");
         return result;
     }
 
