@@ -14,7 +14,7 @@ import java.util.Random;
  */
 public class CutbackEncryption extends EncryptionEquipment{
 
-    Logger logger = LoggerFactory.getLogger(CutbackEncryption.class);
+    private static Logger logger = LoggerFactory.getLogger(CutbackEncryption.class);
 
     protected CutbackEncryption(Encryption encryption){
         super(encryption);

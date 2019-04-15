@@ -14,7 +14,7 @@ import java.util.Random;
  */
 public class SimpleCutEncryption extends EncryptionEquipment{
 
-    Logger logger = LoggerFactory.getLogger(SimpleCutEncryption.class);
+    private static Logger logger = LoggerFactory.getLogger(SimpleCutEncryption.class);
 
     protected SimpleCutEncryption(Encryption encryption){
         super(encryption);
