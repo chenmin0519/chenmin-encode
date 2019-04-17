@@ -10,8 +10,8 @@ public class MyTest {
 //        List<String> o = ChenminEncryptUtills.simpleDecodeByList(Arrays.asList(s.split(" ")));
 //        System.out.println(o);
 
-        String encryptStr = ChenminEncryptUtills.simpleEncode("不知道的事");
-        System.out.println(encryptStr);
+        String encryptStr = ChenminEncryptUtills.simpleEncode("chenmin");
+        System.out.println("---------------加密后："+encryptStr);
         String decryptStr = ChenminEncryptUtills.simpleDecode(encryptStr);
         System.out.println(decryptStr);
     }

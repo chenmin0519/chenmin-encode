@@ -39,7 +39,7 @@ public class SimpleCutEncryption extends EncryptionEquipment{
         List<String> encryptAfterArr = new ArrayList<>();
         Random random = new Random();
         Integer randomNum = random.nextInt(999);
-        Integer randomEncryptNum = randomNum*6-519;
+        Integer randomEncryptNum = randomNum*6+519;
         encryptAfterArr.add(randomEncryptNum.toString());
         int index = 1;
         for(int i = 0 ; i < encryptBeforArr.size() ; i ++){
@@ -62,7 +62,7 @@ public class SimpleCutEncryption extends EncryptionEquipment{
         Long randomNum = Long
                 .parseLong(decryptBeforArr
                         .get(0));
-        randomNum = (randomNum + 519)/6;
+        randomNum = (randomNum - 519)/6;
         for(int index = 1 ; index < decryptBeforArr.size() ; index ++){
             Long decryptNum = Long.parseLong(decryptBeforArr.get(index));
             Long temp;

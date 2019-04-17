@@ -47,7 +47,7 @@ public class CutbackEncryption extends EncryptionEquipment{
             Long nextAsciiNum;
             if(i == encryptArr.size()-1){
                 Random random = new Random();
-                Integer randomNum = random.nextInt(99999);
+                Integer randomNum = random.nextInt(99);
                 nextAsciiNum = Long.parseLong(randomNum.toString());
             }else{
                 nextAsciiNum = Long.parseLong(encryptArr.get(i+1));
