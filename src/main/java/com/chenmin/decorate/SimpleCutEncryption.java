@@ -46,13 +46,14 @@ public class SimpleCutEncryption extends EncryptionEquipment{
             Long encryptNum = Long.parseLong(encryptBeforArr.get(i));
             Long temp;
             if(index%2 > 0){
-                temp = encryptNum - (randomNum*2);
+                temp = encryptNum + (randomNum*2);
             }else{
-                temp = encryptNum - randomNum;
+                temp = encryptNum + randomNum;
             }
             encryptAfterArr.add(temp.toString());
             index ++;
         }
+        logger.info("simpleCut------->"+encryptAfterArr.toString());
         return encryptAfterArr;
     }
 
@@ -67,9 +68,9 @@ public class SimpleCutEncryption extends EncryptionEquipment{
             Long decryptNum = Long.parseLong(decryptBeforArr.get(index));
             Long temp;
             if(index%2 > 0){
-                temp = decryptNum + (randomNum*2);
+                temp = decryptNum - (randomNum*2);
             }else{
-                temp = decryptNum + randomNum;
+                temp = decryptNum - randomNum;
             }
             decryptAfterArr.add(temp.toString());
         }

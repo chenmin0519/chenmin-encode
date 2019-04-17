@@ -58,6 +58,7 @@ public class CutbackEncryption extends EncryptionEquipment{
                 encryptNums.add(nextAsciiNum.toString());
             }
         }
+        logger.info("cutBack------->"+encryptNums.toString());
         return encryptNums;
     }
 

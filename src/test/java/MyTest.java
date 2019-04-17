@@ -1,7 +1,5 @@
 import com.chenmin.decorate.ChenminEncryptUtills;
 
-import java.util.Arrays;
-import java.util.List;
 
 public class MyTest {
     public static void main(String[] args) {
